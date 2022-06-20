@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6272a4;}
+.s1 { color: #f8f8f2;}
+.s2 { color: #ff79c6;}
+.s3 { color: #f998cc;}
+.s4 { color: #f1fa8c;}
+.s5 { color: #bd93f9;}
+.s6 { color: #ffb86c;}
+</style>
+</head>
+<body bgcolor="#282a36">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># This is a sample Python script.</span>
+<span class="s2">import </span><span class="s1">PySimpleGUI </span><span class="s2">as </span><span class="s1">sg</span>
+
+
+<span class="s2">class </span><span class="s1">TelaPython</span><span class="s3">:</span>
+    <span class="s2">def </span><span class="s1">__init__(self)</span><span class="s3">:</span>
+        <span class="s0">&quot;&quot;&quot; 
+        Temas para a Tela: 
+        :LightBlue[1...9] 
+        :DarkBlue[1...9] 
+        :Kayak 
+        :LightBrown[1...9] 
+        :DarkBrown[1...9] 
+        &quot;&quot;&quot;</span>
+        <span class="s1">sg.change_look_and_feel(</span><span class="s4">'Kayak'</span><span class="s1">)</span>
+        <span class="s0"># Layout</span>
+        <span class="s1">layout </span><span class="s3">= </span><span class="s1">[</span>
+            <span class="s1">[sg.Text(</span><span class="s4">'Nome'</span><span class="s1">, size</span><span class="s3">=</span><span class="s1">(</span><span class="s5">5</span><span class="s1">, </span><span class="s5">0</span><span class="s1">)), sg.Input(size</span><span class="s3">=</span><span class="s1">(</span><span class="s5">30</span><span class="s1">, </span><span class="s5">0</span><span class="s1">), key</span><span class="s3">=</span><span class="s4">'Nome'</span><span class="s1">)],</span>
+            <span class="s1">[sg.Text(</span><span class="s4">'Idade'</span><span class="s1">, size</span><span class="s3">=</span><span class="s1">(</span><span class="s5">5</span><span class="s1">, </span><span class="s5">0</span><span class="s1">)), sg.Input(size</span><span class="s3">=</span><span class="s1">(</span><span class="s5">10</span><span class="s1">, </span><span class="s5">0</span><span class="s1">), key</span><span class="s3">=</span><span class="s4">'Idade'</span><span class="s1">)],</span>
+            <span class="s1">[sg.Text(</span><span class="s4">'Genero'</span><span class="s1">)],</span>
+            <span class="s1">[sg.Radio(</span><span class="s4">'Masculino'</span><span class="s1">, </span><span class="s4">'sexo'</span><span class="s1">, key</span><span class="s3">=</span><span class="s4">'Masculino'</span><span class="s1">),</span>
+             <span class="s1">sg.Radio(</span><span class="s4">'Feminino'</span><span class="s1">, </span><span class="s4">'sexo'</span><span class="s1">, key</span><span class="s3">=</span><span class="s4">'Feminino'</span><span class="s1">)],</span>
+            <span class="s1">[sg.Text(</span><span class="s4">'Email de Inscrição'</span><span class="s1">)],</span>
+            <span class="s1">[sg.Checkbox(</span><span class="s4">'Gmail'</span><span class="s1">, key</span><span class="s3">=</span><span class="s4">'gmail'</span><span class="s1">),</span>
+             <span class="s1">sg.Checkbox(</span><span class="s4">'Outlook'</span><span class="s1">, key</span><span class="s3">=</span><span class="s4">'outlook'</span><span class="s1">), sg.Checkbox(</span><span class="s4">'Yahoo'</span><span class="s1">, key</span><span class="s3">=</span><span class="s4">'yahoo'</span><span class="s1">)],</span>
+            <span class="s1">[sg.Slider(range</span><span class="s3">=</span><span class="s1">(</span><span class="s5">0</span><span class="s1">,</span><span class="s5">255</span><span class="s1">), default_value</span><span class="s3">=</span><span class="s5">0</span><span class="s1">,</span>
+                       <span class="s1">orientation</span><span class="s3">=</span><span class="s4">'h'</span><span class="s1">, size</span><span class="s3">=</span><span class="s1">(</span><span class="s5">15</span><span class="s1">, </span><span class="s5">20</span><span class="s1">), key</span><span class="s3">=</span><span class="s4">'SpeedSlider'</span><span class="s1">)],</span>
+            <span class="s1">[sg.Button(</span><span class="s4">'Enviar Dados'</span><span class="s1">)],</span>
+            <span class="s1">[sg.Output(size</span><span class="s3">=</span><span class="s1">(</span><span class="s5">40</span><span class="s1">, </span><span class="s5">20</span><span class="s1">))]</span>
+        <span class="s1">]</span>
+        <span class="s0"># Janela</span>
+        <span class="s1">self.janela </span><span class="s3">= </span><span class="s1">sg.Window(</span><span class="s4">&quot;Dados do Usuário&quot;</span><span class="s1">).layout(layout)</span>
+
+    <span class="s2">def </span><span class="s1">Iniciar(self)</span><span class="s3">:</span>
+        <span class="s2">while True</span><span class="s3">:</span>
+            <span class="s0"># Extrair os dados da tela</span>
+            <span class="s1">self.button, self.values </span><span class="s3">= </span><span class="s1">self.janela.Read()</span>
+            <span class="s1">nome </span><span class="s3">= </span><span class="s1">self.values[</span><span class="s4">'Nome'</span><span class="s1">]</span>
+            <span class="s1">idade </span><span class="s3">= </span><span class="s1">self.values[</span><span class="s4">'Idade'</span><span class="s1">]</span>
+            <span class="s1">gmail </span><span class="s3">= </span><span class="s1">self.values[</span><span class="s4">'gmail'</span><span class="s1">]</span>
+            <span class="s1">outlook </span><span class="s3">= </span><span class="s1">self.values[</span><span class="s4">'outlook'</span><span class="s1">]</span>
+            <span class="s1">yahoo </span><span class="s3">= </span><span class="s1">self.values[</span><span class="s4">'yahoo'</span><span class="s1">]</span>
+            <span class="s1">sexo_masc </span><span class="s3">= </span><span class="s1">self.values[</span><span class="s4">'Masculino'</span><span class="s1">]</span>
+            <span class="s1">sexo_fem </span><span class="s3">= </span><span class="s1">self.values[</span><span class="s4">'Feminino'</span><span class="s1">]</span>
+            <span class="s1">speed </span><span class="s3">= </span><span class="s1">self.values[</span><span class="s4">'SpeedSlider'</span><span class="s1">]</span>
+            <span class="s1">print(</span><span class="s4">f'Nome: </span><span class="s6">{</span><span class="s1">nome</span><span class="s6">}</span><span class="s4">'</span><span class="s1">)</span>
+            <span class="s1">print(</span><span class="s4">f'Idade: </span><span class="s6">{</span><span class="s1">idade</span><span class="s6">}</span><span class="s4">'</span><span class="s1">)</span>
+            <span class="s1">print(</span><span class="s4">f'Gmail: </span><span class="s6">{</span><span class="s1">gmail</span><span class="s6">}</span><span class="s4">'</span><span class="s1">)</span>
+            <span class="s1">print(</span><span class="s4">f'Outlook: </span><span class="s6">{</span><span class="s1">outlook</span><span class="s6">}</span><span class="s4">'</span><span class="s1">)</span>
+            <span class="s1">print(</span><span class="s4">f'Yahoo: </span><span class="s6">{</span><span class="s1">yahoo</span><span class="s6">}</span><span class="s4">'</span><span class="s1">)</span>
+            <span class="s1">print(</span><span class="s4">f'Masculino: </span><span class="s6">{</span><span class="s1">sexo_masc</span><span class="s6">}</span><span class="s4">'</span><span class="s1">)</span>
+            <span class="s1">print(</span><span class="s4">f'Feminino: </span><span class="s6">{</span><span class="s1">sexo_fem</span><span class="s6">}</span><span class="s4">'</span><span class="s1">)</span>
+            <span class="s1">print(</span><span class="s4">f'Speed: </span><span class="s6">{</span><span class="s1">speed</span><span class="s6">}</span><span class="s4">'</span><span class="s1">)</span>
+
+
+
+<span class="s1">tela </span><span class="s3">= </span><span class="s1">TelaPython()</span>
+<span class="s1">tela.Iniciar()</span>
+</pre>
+</body>
+</html>
